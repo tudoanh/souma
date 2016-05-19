@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Souma{% endblock %}
+{% block page_content %}
+<section class="main">
+    <div class="container landing-page">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Souma Project</h2>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

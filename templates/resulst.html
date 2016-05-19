@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Souma{% endblock %}
+{% block page_content %}
+<section class="main">
+    <div class="container article-page">
+        <div class="table-responsive">
+            <h2>List of most common word in your article</h2>
+            <ul>
+                {% for i in keywords[-20:] %}
+                <li><b>{{ i[0] }}</b> show up <b>{{ i[1] }}</b> times</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}
