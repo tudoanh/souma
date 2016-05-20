@@ -10,13 +10,13 @@ from flask.ext.bootstrap import Bootstrap
 
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 app.config['SECRET_KEY'] = 'Ringa Linga'
 bootstrap = Bootstrap(app)
 
 
 class UrlForm(Form):
-    url = StringField("Paste your article's url", validators=[URL()])
+    url = StringField("Paste your article's url bellow", validators=[URL()])
     submit = SubmitField("Parse")
 
 
@@ -47,4 +47,4 @@ def parse(url):
     return content_sorted
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
