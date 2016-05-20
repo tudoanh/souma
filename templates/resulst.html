@@ -14,31 +14,57 @@
     
     <body>
         <div class="center-align">
-            <h2>Parsed data</h2>
+            <h2>Results</h2>
         </div>
 
         <div class="row">
-            <div class="col s4 offset-s6">
-                <table class="responsive-table">
-                    <thead>
-                        <tr>
-                            <th data-field="word"><div class="left-align">Word</div></th>
-                            <th data-field="count"><div class="right-align">Show up times</div></th>
-                        </tr>
-                    </thead> 
+            <div class="col s4 push-s2">
+                <h3>Article Sumary</h3>
+                <div class="card">
+                    <div class="card-image">
+                        <img src={{ top_image }}>
+                        <a href={{ article_url }}><span class="card-title">{{
+                                title }}</span></a>
+                    </div>
+                    <div class="card-content">
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href={{ top_image }}>Image link</a>
+                    </div>
+                </div>
 
-                    <tbody>
-                        {% for i in keywords[-20:] %}
-                        <tr>
-                            <td><div class="left-align">{{ i[0] }}</div></td>
-                            <td><div class="right-align">{{ i[1] }}</div></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                <table>
+                <h3>Article Content</h3>
+                <div class="card-panel">
+                    {% for i in content.splitlines() %}
+                    <p class="flow-text">{{ i }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col s4 push-s2">
+                <h3>Most common 20 words</h3>
+                <div class="card-panel">
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th data-field="word"><div class="left-align">Word</div></th>
+                                <th data-field="count"><div class="right-align">Show up times</div></th>
+                            </tr>
+                        </thead> 
+
+                        <tbody>
+                            {% for i in keywords[-20:] %}
+                            <tr>
+                                <td><div class="left-align">{{ i[0] }}</div></td>
+                                <td><div class="right-align">{{ i[1] }}</div></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    <table>
+                </div>
             </div>
         </div>
     </body>
 </html>
-    
-          
+
