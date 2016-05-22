@@ -6,13 +6,11 @@ from newspaper import Article
 from flask.ext.wtf import Form
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required, URL
-from flask.ext.bootstrap import Bootstrap
 
 
 app = Flask(__name__)
 app.debug = False
 app.config['SECRET_KEY'] = 'Ringa Linga'
-bootstrap = Bootstrap(app)
 
 
 class UrlForm(Form):
@@ -54,6 +52,7 @@ def parse(url):
 
     content_counter = Counter(content)
     content_sorted = sorted(content_counter.items(), key=operator.itemgetter(1))
+    content_sorted.reverse()
 
     data = {}
     data['title'] = article.title
