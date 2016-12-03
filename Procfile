@@ -1,0 +1,1 @@
+web: gunicorn souma:app
